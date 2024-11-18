@@ -1,0 +1,75 @@
+select * from firma
+select * from gradjani
+select * from odeljenje
+
+create table zaposleni
+(
+	zaposleniID int,
+	JMBG int,
+	odeljenjeID int
+)
+
+insert into zaposleni values (1, 11, 1), (2, 22, 2), (1, 11, 2), (1, 11, 3), (3, 33, 2), (4, 44, 1)
+
+create table rukovodilac
+(
+	odeljenjeID int,
+	zaposleniID int
+)
+
+insert into rukovodilac values (1, 1), (2, 1), (3, 3), (4, 2)
+
+--1
+
+create view Beograd_firma as
+select odeljenjeID, firmaID
+from odeljenje
+where firmaID in (
+					select firmaID
+					from firma
+					where mesto like 'Beograd'
+				 )
+
+select * from Beograd_firma
+
+create view radili_u_Bgu as
+select JMBG
+from zaposleni
+where odeljenjeID in (
+						select odeljenjeID
+						from Beograd_firma
+					 )
+
+select * from radili_u_Bgu
+
+select JMBG
+from zaposleni
+where JMBG not in (select JMBG from radili_u_Bgu)
+
+select * from zaposleni
+
+--2
+
+create view pogledd as
+select odeljenjeID,
+		(
+			select count(*)
+			from zaposleni z
+			where z.odeljenjeID = o.odeljenjeID
+		) brZaposlenih
+from odeljenje o
+
+select * from pogledd
+select * from zaposleni order by odeljenjeID desc
+select * from odeljenje
+
+select r.zaposleniID
+from pogledd p join rukovodilac r on p.odeljenjeID = r.odeljenjeID and p.brZaposlenih >= 2
+
+select * from rukovodilac
+
+
+
+
+
+

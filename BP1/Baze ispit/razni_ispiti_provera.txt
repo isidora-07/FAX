@@ -1,0 +1,176 @@
+create table firma
+(
+	firmaID int primary key,
+	naziv varchar(255),
+	mesto varchar(255)
+)
+
+insert into firma values (1, 'naziv1', 'Kragujevac'),
+						 (2, 'naziv2', 'Beograd'),
+						 (3, 'naziv3', 'Novi Sad'),
+						 (4, 'naziv4', 'Krusevac'),
+						 (5, 'naziv5', 'Zrenjanin')
+
+select * from firma
+
+create table zaposleni
+(
+	zaposleniID int primary key,
+	JMBG int,
+	odeljenjeID int,
+	datumZaposlenja datetime,
+	datumOdjave datetime
+)
+
+insert into zaposleni values (1, 123, 1, '2015-01-17','2018-05-23')
+insert into zaposleni values (2, 456, 1, '2017-10-15', null)
+insert into zaposleni values (3, 789, 2, '2014-11-11', '2018-08-02')
+insert into zaposleni values (4, 101112, 3, '2019-12-31', null)
+insert into zaposleni values (5, 131415, 4, '2016-11-11', '2019-11-11')
+
+--delete from zaposleni
+
+select * from zaposleni
+
+create table gradjani
+(
+	JMBG int,
+	ime varchar(255),
+	prezime varchar(255)
+)
+
+insert into gradjani values (123, 'Isidora', 'Arandjelovic'), 
+							(456, 'Nikola', 'Vasic'),
+							(789, 'Dusan', 'Neskovic'),
+							(101112, 'Emilija', 'Arandjelovic'),
+							(131415, 'Ana', 'Grujovic')
+
+select * from gradjani
+
+create table odeljenje
+(
+	odeljenjeID int primary key,
+	naziv varchar(255),
+	firmaID int
+)
+
+insert into odeljenje values (1, 'odeljenje1', 1), 
+							(2, 'odeljenje2', 2),
+							(3, 'odeljenje3', 3),
+							(4, 'odeljenje4', 3),
+							(5, 'odeljenje5', 4)
+
+select * from odeljenje
+
+create view pogled as
+select z.JMBG, g.ime, g.prezime, f.firmaID, f.naziv, z.datumZaposlenja, z.datumOdjave
+from zaposleni z join odeljenje o on
+	z.odeljenjeID = o.odeljenjeID join firma f on
+	f.firmaID = o.firmaID join gradjani g on
+	g.JMBG = z.JMBG
+
+create view staz as
+select *,
+	case
+		when datumOdjave is null then datediff(year, datumZaposlenja, getdate())
+		else datediff(year, datumZaposlenja, datumOdjave)
+	end radniStaz
+from pogled
+
+select firmaID, ime, prezime, radniStaz
+from staz
+order by radniStaz desc
+
+create view najveciStaz as
+select max(radniStaz) najveci
+from staz 
+
+select s.ime, s.prezime
+from staz s join najveciStaz ns on
+	s.radniStaz = ns.najveci
+
+
+--JANUAR 2019 ZADATAK 2
+create table pojava
+(
+	url varchar(255),
+	rec varchar(255)
+)
+
+create table recnik
+(
+	jezik varchar(255),
+	rec varchar(255)
+)
+
+insert into pojava values ('url1', 'isi'),
+						  ('url1', 'ana'),
+						  ('url1', 'aki'),
+						  ('url1', 'laki'),
+						  ('url1', 'mimi'),
+						  ('url2', 'marko'),
+						  ('url2', 'mimi'),
+						  ('url3', 'vaske'),
+     					  ('url3', 'isi'),
+						  ('url4', 'megi'),
+						  ('url4', 'haha'),
+						  ('url4', 'ema'),
+						  ('url4', 'stojko'),
+						  ('url5', 'haha'),
+						  ('url5', 'mimi')
+
+insert into recnik values ('srpski', 'isi'),
+						  ('srpski', 'ana'),
+						  ('srpski', 'mimi'),
+						  ('engleski', 'haha'),
+						  ('engleski', 'isi'),
+						  ('spasnki', 'stojko'),
+						  ('turski', 'aki'),
+						  ('turski', 'marko'),
+						  ('turski', 'megi'),
+						  ('ruski', 'aki'),
+						  ('ruski', 'laki'),
+						  ('srpski', 'isi'),
+						  ('srpski', 'mimi')
+insert into recnik values ('engleski', 'ema')
+insert into recnik values ('engleski', 'vaske')
+insert into recnik values ('turski', 'vaske')
+
+select * from recnik
+select * from pojava
+
+
+create view kolikoPuta as
+select p.url, p.rec,
+		(
+			select count(*)
+			from recnik r
+			where r.rec = p.rec
+		) broj
+from pojava p
+
+create view ukupnoPojavljivanje as
+select url, sum(broj) brojPuta
+from kolikoPuta
+group by url
+
+create view pojavaReci as
+select url, count(*) pojavljivanje
+from pojava
+group by url
+
+select distinct url
+from pojava
+where url in (
+				select url
+				from ukupnoPojavljivanje
+				where brojPuta in (
+									select pojavljivanje
+									from pojavaReci
+									where url not in (
+													select url
+													from kolikoPuta
+													where broj > 1
+												 )
+							      )
+			 )

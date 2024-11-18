@@ -1,0 +1,83 @@
+create table pojava
+(
+	url varchar(255),
+	rec varchar(255)
+)
+
+create table recnik
+(
+	jezik varchar(255),
+	rec varchar(255)
+)
+
+insert into pojava values ('url1', 'isi'),
+						  ('url1', 'ana'),
+						  ('url1', 'aki'),
+						  ('url1', 'laki'),
+						  ('url1', 'mimi'),
+						  ('url2', 'marko'),
+						  ('url2', 'mimi'),
+						  ('url3', 'vaske'),
+     					  	  ('url3', 'isi'),
+						  ('url4', 'megi'),
+						  ('url4', 'haha'),
+						  ('url4', 'ema'),
+						  ('url4', 'stojko'),
+						  ('url5', 'haha'),
+						  ('url5', 'mimi')
+
+insert into recnik values ('srpski', 'isi'),
+						  ('srpski', 'ana'),
+						  ('srpski', 'mimi'),
+						  ('engleski', 'haha'),
+						  ('engleski', 'isi'),
+						  ('spasnki', 'stojko'),
+						  ('turski', 'aki'),
+						  ('turski', 'marko'),
+						  ('turski', 'megi'),
+						  ('ruski', 'aki'),
+						  ('ruski', 'laki'),
+						  ('srpski', 'isi'),
+						  ('srpski', 'mimi')
+insert into recnik values ('engleski', 'ema')
+insert into recnik values ('engleski', 'vaske')
+insert into recnik values ('turski', 'vaske')
+
+select * from recnik
+select * from pojava
+
+
+create view kolikoPuta as
+select p.url, p.rec,
+		(
+			select count(*)
+			from recnik r
+			where r.rec = p.rec
+		) broj
+from pojava p
+
+create view ukupnoPojavljivanje as
+select url, sum(broj) brojPuta
+from kolikoPuta
+group by url
+
+create view pojavaReci as
+select url, count(*) pojavljivanje
+from pojava
+group by url
+
+select distinct url
+from pojava
+where url in (
+		select url
+		from ukupnoPojavljivanje
+		where brojPuta in (
+					select pojavljivanje
+					from pojavaReci
+					where url not in (
+								select url
+								from kolikoPuta
+								where broj > 1
+							 )
+				  )
+	    )
