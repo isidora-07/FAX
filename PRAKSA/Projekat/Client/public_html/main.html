@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Main</title>
+        <link rel="shortcut icon" href="#">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="JavaScriptClient.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+
+    <body onload="_getContent()">
+        <h1 style="text-align: center;">Prikaz metoda</h1>
+        
+        <div style="padding-left: 90px; margin-left: 10px;">
+            <table id="table_bend" class="table_b_a"></table>
+
+            <table id="table_artist" class="table_b_a">
+                <tr>
+                    <th>Ime muzičara</th>
+                    <th>Datum rođenja</th>
+                    <th>Naziv benda</th>
+                </tr>
+            </table>
+        </div>
+
+        <div style="margin-top: 370px; padding-left: 20%;">
+            <table id="table_genre" class="table_g_s">
+                <tr>
+                    <th>Naziv žanra</th>
+                </tr>
+            </table>
+    
+            <table id="table_song" class="table_g_s" style="margin-left: 5%;">
+                <tr>
+                    <th>Naziv pesme </th>
+                    <th>Naziv benda</th>
+                </tr>
+            </table>
+        </div>
+        
+        <div class='input_style'>
+            <h3>Unesi bend</h3>
+            <input type='text' id='naziv_benda_input' placeholder="Unesi naziv benda">
+            <select name="genre" id="genres_select"></select>
+            <button type="button" onclick='input()'>Unesi</button>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,4 @@
+2020-08-28T15:58:09.8863157+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2020-08-28T15:58:09.8971058+02:00  [INF] Hosting environment: "Development" (c3307c92)
+2020-08-28T15:58:09.9186284+02:00  [INF] Content root path: "C:\Users\Isidora\Desktop\FAX\3.godina\PRAKSA\loboASPNET\loboASPNET" (b5d60022)
+2020-08-28T15:58:25.9292482+02:00 800001ce-0000-fb00-b63f-84710c7967bb [INF] method Get (439850c6)

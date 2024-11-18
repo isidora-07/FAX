@@ -1,0 +1,63 @@
+body {
+  height: 100vh;
+  flex-direction: column;
+  background: #eee;
+}
+
+.table_b_a {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 45%;
+    float:left
+  }
+  
+  .table_b_a td, .table_b_a th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .table_b_a tr:nth-child(even){background-color: #f1f1f1;}
+  
+  .table_b_a tr:hover {background-color: #f1f1f1;}
+  
+  .table_b_a th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #24a6bd;
+    color: white;
+  }
+
+  .table_b_a:last-child{
+      margin-left: 40px;
+  }
+
+  .table_g_s {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 30%;
+    float: left;
+  }
+  
+  .table_g_s td, .table_g_s th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .table_g_s tr:nth-child(even){background-color: #f1f1f1;}
+  
+  .table_g_s tr:hover {background-color: #f1f1f1;}
+  
+  .table_g_s th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #24a6bd;
+    color: white;
+  }
+
+.input_style{
+  position: absolute;
+  margin-top: 220px;
+  left: 21%;
+}
