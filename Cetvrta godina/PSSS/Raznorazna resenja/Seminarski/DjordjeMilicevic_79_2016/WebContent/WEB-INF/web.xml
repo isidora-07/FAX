@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>DjordjeMilicevic_79_2016</display-name>
+  <welcome-file-list>
+    <welcome-file>welcome.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  	<servlet>
+		<servlet-name>users</servlet-name>
+		<servlet-class>Servlets.UserServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>users</servlet-name>
+		<url-pattern>/users</url-pattern>
+		<url-pattern>/users/</url-pattern>
+		<url-pattern>/users/list</url-pattern>
+		<url-pattern>/users/new</url-pattern>
+		<url-pattern>/users/add</url-pattern>
+		<url-pattern>/users/edit</url-pattern>
+		<url-pattern>/users/update</url-pattern>
+		<url-pattern>/users/delete</url-pattern>
+		<url-pattern>/users/auth</url-pattern>
+		<url-pattern>/users/login</url-pattern>
+		<url-pattern>/users/logout</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>roles</servlet-name>
+		<servlet-class>Servlets.RoleServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>roles</servlet-name>
+		<url-pattern>/roles</url-pattern>
+		<url-pattern>/roles/</url-pattern>
+		<url-pattern>/roles/list</url-pattern>
+		<url-pattern>/roles/new</url-pattern>
+		<url-pattern>/roles/add</url-pattern>
+		<url-pattern>/roles/edit</url-pattern>
+		<url-pattern>/roles/update</url-pattern>
+		<url-pattern>/roles/delete</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>clubs</servlet-name>
+		<servlet-class>Servlets.ClubServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>clubs</servlet-name>
+		<url-pattern>/clubs</url-pattern>
+		<url-pattern>/clubs/</url-pattern>
+		<url-pattern>/clubs/list</url-pattern>
+		<url-pattern>/clubs/new</url-pattern>
+		<url-pattern>/clubs/add</url-pattern>
+		<url-pattern>/clubs/edit</url-pattern>
+		<url-pattern>/clubs/update</url-pattern>
+		<url-pattern>/clubs/delete</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>games</servlet-name>
+		<servlet-class>Servlets.GameServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>games</servlet-name>
+		<url-pattern>/games</url-pattern>
+		<url-pattern>/games/</url-pattern>
+		<url-pattern>/games/list</url-pattern>
+		<url-pattern>/games/new</url-pattern>
+		<url-pattern>/games/add</url-pattern>
+		<url-pattern>/games/edit</url-pattern>
+		<url-pattern>/games/update</url-pattern>
+		<url-pattern>/games/delete</url-pattern>
+		<url-pattern>/games/finish</url-pattern>
+	</servlet-mapping>
+</web-app>

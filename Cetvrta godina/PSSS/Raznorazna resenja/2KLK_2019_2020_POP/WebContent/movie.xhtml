@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+<h:head>
+<title>Movie</title>
+<link href="./css/styles.css" rel="stylesheet" type="text/css"/>
+</h:head>
+<h:body>
+	<h1 class="title">Movie - <h:outputText value="#{param['id']}"/></h1>
+	<center>
+	<h:dataTable binding="#{movieT}" value="#{movie.getMovie(param['id'])}" var="m">
+	
+		<h:column>
+			<f:facet name="header">Title</f:facet>
+			<h:outputText value="#{m.title}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Description</f:facet>
+			<h:outputText value="#{m.description}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Year</f:facet>
+			<h:outputText value="#{m.year}" />
+		</h:column>
+	</h:dataTable>
+	</center>
+
+</h:body></html>

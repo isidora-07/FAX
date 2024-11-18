@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Kotarica</title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+</h:head>
+<h:body>
+	<h1 class="title">
+		<h:outputLabel value="#{logged_user.username}" />
+	</h1>
+
+	<h:form>
+		<h:link outcome="oglasi.xhtml?faces-redirect=true" value="Moji oglasi" />
+
+		<h:dataTable binding="#{table}" value="#{pr.listaProizvoda(0)}"
+			var="p">
+			<h:column>
+				<f:facet name="header">Naziv</f:facet>
+				<h:outputText value="#{p.naziv}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Cena</f:facet>
+				<h:outputText value="#{p.cena}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Mera</f:facet>
+				<h:outputText value="#{p.mera}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Kolicina</f:facet>
+				<h:outputText value="#{p.kolicina}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Dodaj</f:facet>
+				<h:commandButton value="Dodaj u korpu"
+					action="#{pr.dodajProizvodUKorpu(p.id, logged_user.id)}" />
+			</h:column>
+		</h:dataTable>
+		
+	</h:form>
+
+</h:body>
+</html>

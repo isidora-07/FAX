@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+<!--  When you make your own projects, copy and rename sample-file-with-form.xhtml
+      or sample-file-no-form.xhtml. Don't copy and rename THIS file, because
+      this file has too many extraneous things in it. -->
+<h:head>
+<title>Filmovi</title>
+<link href="./css/styles.css" rel="stylesheet" type="text/css"/> 
+</h:head>
+<h:body>
+	<center>
+	<h:form id="form">
+		<!-- Search -->
+		<table>
+			<tr>
+				<td><h:inputText value="#{movie.title}"/></td>
+				<td><h:commandButton value="Pronadji" action="#{movie.updateMovieList(movie.title)}" /></td>
+			</tr>
+		</table>
+		
+		<!-- Paginacija -->
+		<table>
+			<tr>
+				<td><h:outputText value="#{pagginator_num} / #{pagginator_size}"/></td>
+				<td><h:commandButton value="Prethodna" action="#{movie.changePage(-1)}" /></td>
+				<td><h:commandButton value="Naredna" action="#{movie.changePage(1)}" /></td>
+				
+			</tr>
+		</table>
+		
+		<!-- Tabela -->
+		<h:dataTable binding="#{table}" value="#{movie.getMovieList()}" var="m">
+			<h:column>
+				<f:facet name="header">Title</f:facet>
+				<h:outputText value="#{m.title}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Rating</f:facet>
+				<h:outputText value="#{m.rating}"/>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Actions</f:facet>
+				<h:commandButton value="Detalji" action="#{movie.redirect(m.ID)}"></h:commandButton>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+	</center>
+</h:body>
+</html>

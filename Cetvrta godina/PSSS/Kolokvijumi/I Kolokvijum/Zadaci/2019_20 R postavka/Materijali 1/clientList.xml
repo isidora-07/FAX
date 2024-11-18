@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.6" class="java.beans.XMLDecoder">
+ <object class="MessageProtocol">
+  <void property="from">
+   <string>server</string>
+  </void>
+  <void property="message">
+   <string>clients: pera, mika, zika</string>
+  </void>
+  <void property="to">
+   <string>ALL</string>
+  </void>
+ </object>
+</java>

@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Sef magacina</title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+</h:head>
+<h:body>
+	<center>
+		<h:form id="form">
+			<h1 class="title">
+				<h:outputText value="Sef magacina: #{logged_user.korisnickoIme}"></h:outputText>
+			</h1>
+
+			<h:dataTable binding="#{table}" value="#{proizvod.listaProizvoda()}"
+				var="p">
+				<h:column>
+					<f:facet name="header">Naziv</f:facet>
+					<h:outputText value="#{p.naziv}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Tip</f:facet>
+					<h:outputText value="#{p.tip}"></h:outputText>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Opis</f:facet>
+					<h:outputText value="#{p.opis}"></h:outputText>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Kolicina</f:facet>
+					<h:outputText value="#{p.kolicina}"></h:outputText>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header"></f:facet>
+					<h:commandButton value="Obrisi" action="#{proizvod.delete(p.id)}" />
+				</h:column>
+
+			</h:dataTable>
+
+			<!-- DODAVANJE -->
+
+			<table>
+				<tr>
+					<td><h:outputLabel>Naziv:</h:outputLabel></td>
+					<td><h:inputText id="naziv" value="#{proizvod.naziv}"></h:inputText></td>
+				</tr>
+
+				<tr>
+					<td><h:outputLabel>Tip:</h:outputLabel></td>
+					<td><h:inputText id="tip" value="#{proizvod.tip}"></h:inputText></td>
+				</tr>
+
+				<tr>
+					<td><h:outputLabel>Opis:</h:outputLabel></td>
+					<td><h:inputText id="opis" value="#{proizvod.opis}"></h:inputText></td>
+				</tr>
+
+				<tr>
+					<td><h:outputLabel>Kolicina:</h:outputLabel></td>
+					<td><h:inputText id="kolicina" value="#{proizvod.kolicina}"></h:inputText></td>
+				</tr>
+
+			</table>
+
+			<h:commandButton value="Dodaj proizvod" action="#{proizvod.dodajProizvod()}"></h:commandButton>
+			<h:message for="addErr" />
+			
+		</h:form>
+	</center>
+</h:body>
+</html>

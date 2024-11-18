@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Oglasi</title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+</h:head>
+<h:body>
+	<h1 class="title">
+		<h:outputText value="#{logged_user.username}"></h:outputText>
+	</h1>
+
+	<h:form>
+		<h:link outcome="kotarica.xhtml?faces-redirect=true" value="Pocetna"></h:link>
+
+		<h:dataTable binding="#{table}"
+			value="#{pr.listaProizvoda(logged_user.id)}" var="p">
+			<h:column>
+				<f:facet name="header">Naziv</f:facet>
+				<h:outputText value="#{p.naziv}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Cena</f:facet>
+				<h:outputText value="#{p.cena}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Mera</f:facet>
+				<h:outputText value="#{p.mera}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Kolicina</f:facet>
+				<h:outputText value="#{p.kolicina}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Obrisi</f:facet>
+				<h:commandButton value="Obrisi oglas"
+					action="#{pr.obrisiOglas(p.id)}" />
+			</h:column>
+		</h:dataTable>
+		
+		<br/><br/><br/>
+		
+		<h:outputText value="Novi oglas" />
+		<table>
+			<tr>
+				<td>
+					<h:outputText value="Naziv:" /> 
+					<h:inputText value="#{pr.naziv}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputText value="Cena:" />
+					<h:inputText value="#{pr.cena}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputText value="Mera:" />
+					<h:inputText value="#{pr.mera}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputText value="Kolicina:" />
+					<h:inputText value="#{pr.kolicina}" />
+				</td>
+			</tr>
+		</table>
+		<h:commandButton value="Dodaj oglas"
+			action="#{pr.dodajOglas(logged_user.id)}"></h:commandButton>
+	</h:form>
+
+</h:body>
+</html>

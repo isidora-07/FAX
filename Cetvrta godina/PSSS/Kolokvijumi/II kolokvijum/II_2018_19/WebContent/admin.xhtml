@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Admin</title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+</h:head>
+<h:body>
+	<h1 class="title">
+		<h:outputText value="Dobrodosao #{logged_user.name } sale"></h:outputText>
+	</h1>
+
+	<h:form id="addUserForm">
+		<table>
+			<tr>
+				<td><h:outputLabel for="name">Ime i prezime</h:outputLabel></td>
+				<td><h:inputText id="name" value="#{user.name}"
+						validatorMessage="Ime je obavezno"></h:inputText></td>
+			</tr>
+
+			<tr>
+				<td><h:outputLabel for="year">Godine</h:outputLabel></td>
+				<td><h:inputText id="year" value="#{user.year}"
+						validatorMessage="Godine su obavezne"></h:inputText></td>
+			</tr>
+
+			<tr>
+				<td><h:outputLabel for="username">Username</h:outputLabel></td>
+				<td><h:inputText id="username" value="#{user.username}"
+						validatorMessage="Username je obavezan"></h:inputText></td>
+			</tr>
+
+			<tr>
+				<td><h:outputLabel for="password">Password</h:outputLabel></td>
+				<td><h:inputSecret id="password" value="#{user.password}"
+						validatorMessage="Password je obavezan"></h:inputSecret></td>
+			</tr>
+		</table>
+
+		<h:commandButton value="Dodaj" action="#{user.addUser()}"></h:commandButton>
+		<h:message for="addUserError" />
+
+		<h:dataTable binding="#{table}" value="#{user.usersList()}" var="u">
+			<h:column>
+				<f:facet name="header">Name</f:facet>
+				<h:outputText value="#{u.name}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Username</f:facet>
+				<h:outputText value="#{u.username}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Years</f:facet>
+				<h:outputText value="#{u.year}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Action</f:facet>
+				<h:commandButton value="Obrisi" action="#{user.delete(u.id)}" />
+			</h:column>
+
+		</h:dataTable>
+	</h:form>
+
+</h:body>
+</html>

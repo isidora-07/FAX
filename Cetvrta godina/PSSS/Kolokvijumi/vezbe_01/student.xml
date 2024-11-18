@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="18.0.1" class="java.beans.XMLDecoder">
+ <object class="primer_06.Student">
+  <void property="ime">
+   <string>Pera Peric</string>
+  </void>
+  <void property="indeks">
+   <string>123/2017</string>
+  </void>
+ </object>
+ <object class="primer_06.Student">
+  <void property="ime">
+   <string>Mika Mikic</string>
+  </void>
+  <void property="indeks">
+   <string>124/2017</string>
+  </void>
+ </object>
+</java>

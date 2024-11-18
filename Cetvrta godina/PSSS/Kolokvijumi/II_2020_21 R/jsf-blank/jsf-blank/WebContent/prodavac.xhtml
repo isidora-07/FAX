@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Prodavac</title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+</h:head>
+<h:body>
+	<center>
+		<h:form>
+			<h1 class="title">
+				<h:outputText value="Prodavac #{logged_user.korisnickoIme}" />
+			</h1>
+
+			<br />
+			<br />
+			<br />
+
+			<h:dataTable binding="#{table}" value="#{proizvod.getProizvodi()}"
+				var="p">
+				<h:column>
+					<f:facet name="header">Naziv</f:facet>
+					<h:outputText value="#{p.naziv}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Tip</f:facet>
+					<h:outputText value="#{p.tip}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Opis</f:facet>
+					<h:outputText value="#{p.opis}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Kolicina</f:facet>
+					<h:outputText value="#{p.kolicina}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header" />
+					<h:commandButton value="Naruci"
+						action="#{proizvod.naruciProizvod(p.id, logged_user.id)}" />
+				</h:column>
+
+			</h:dataTable>
+
+			<br />
+			<br />
+			<br />
+
+			<table>
+				<tr>
+					<td><h:outputLabel>Korisnicko ime:</h:outputLabel></td>
+					<td><h:inputText value="#{user.korisnickoIme}" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel>Sifra:</h:outputLabel></td>
+					<td><h:inputSecret value="#{user.sifra}" /></td>
+				</tr>
+			</table>
+			<h:commandButton value="Dodaj prodavca"
+				action="#{user.dodajProdavca()}"></h:commandButton>
+			<h:message for="addProd"></h:message>
+			<h:message for="addProdErr"></h:message>
+		</h:form>
+	</center>
+</h:body>
+</html>

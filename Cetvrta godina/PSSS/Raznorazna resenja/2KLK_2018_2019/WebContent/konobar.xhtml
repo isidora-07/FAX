@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+      
+<h:head>
+<title>Your Title Here</title>
+<link href="./css/styles.css" rel="stylesheet" type="text/css"/>
+</h:head>
+<h:body>
+	<center>
+	<h:form id="formKonobar">
+		<!-- Title -->
+		<h1 class="title"><h:outputText value="#{logged_user.name} - #{logged_user.role.name}" /></h1>
+		
+		<!-- Promena sifre -->
+		<table>
+			<tr>
+				<td><h:outputLabel>Old password</h:outputLabel></td>
+				<td><h:inputText value="#{passVal.oldPass}" validatorMessage="Enter old password"><f:validateRequired /></h:inputText></td>
+			</tr>
+			
+			<tr>
+				<td><h:outputLabel>New password</h:outputLabel></td>
+				<td><h:inputText value="#{passVal.newPass1}" validatorMessage="Enter new password"><f:validateRequired /></h:inputText></td>
+			</tr>
+			
+			<tr>
+				<td><h:outputLabel>New password again</h:outputLabel></td>
+				<td><h:inputText value="#{passVal.newPass2}" validatorMessage="Enter new password again"><f:validateRequired /></h:inputText></td>
+			</tr>
+		</table>
+		
+		<h:commandButton value="Submit" action="#{user.changePass(passVal)}"></h:commandButton>
+		<h:message for="errorPass"></h:message>
+		<h:message for="success"></h:message>
+		
+		<!-- Tabela sa porudzbinama -->
+		<h:dataTable binding="#{table}" value="#{user.ordersList()}" var="o">
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{o.id}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Description</f:facet>
+				<h:outputText value="#{o.description}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Quantity</f:facet>
+				<h:outputText value="#{o.quantity}" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
+	</center>
+</h:body>
+</html>

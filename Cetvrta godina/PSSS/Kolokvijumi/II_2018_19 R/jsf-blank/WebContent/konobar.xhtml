@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<title>Your Title Here</title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+</h:head>
+<h:body>
+	<center>
+		<h:form>
+			<h1 class="title">
+				<h:outputText value="Sef sale #{logged_user.name}" />
+			</h1>
+			<br />
+			<br />
+			<br />
+
+			<table>
+				<tr>
+					<td><h:outputLabel>Stara lozinka</h:outputLabel></td>
+					<td><h:inputText value="#{val.oldPass}" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel>Nova lozinka</h:outputLabel></td>
+					<td><h:inputText value="#{val.newPass1}" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel>Ponovi novu lozinku</h:outputLabel></td>
+					<td><h:inputText value="#{val.newPass2}" /></td>
+				</tr>
+			</table>
+
+			<h:commandButton value="Izmeni" action="#{user.promeniPass(val)}"></h:commandButton>
+			<h:message for="izmenaErr"/>
+
+		</h:form>
+	</center>
+</h:body>
+</html>

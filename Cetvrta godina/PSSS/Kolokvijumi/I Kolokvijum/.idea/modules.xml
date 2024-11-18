@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/I Kolokvijum.iml" filepath="$PROJECT_DIR$/.idea/I Kolokvijum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IsidoraArandjelovic123_2017/IsidoraArandjelovic123_2017.iml" filepath="$PROJECT_DIR$/IsidoraArandjelovic123_2017/IsidoraArandjelovic123_2017.iml" />
+      <module fileurl="file://$PROJECT_DIR$/klk_2013-14/klk_2013-14.iml" filepath="$PROJECT_DIR$/klk_2013-14/klk_2013-14.iml" />
+      <module fileurl="file://$PROJECT_DIR$/klk_2017-18/klk_2017-18.iml" filepath="$PROJECT_DIR$/klk_2017-18/klk_2017-18.iml" />
+      <module fileurl="file://$PROJECT_DIR$/klk_2018_19/klk_2018_19.iml" filepath="$PROJECT_DIR$/klk_2018_19/klk_2018_19.iml" />
+      <module fileurl="file://$PROJECT_DIR$/klk_2020_21/klk_2020_21.iml" filepath="$PROJECT_DIR$/klk_2020_21/klk_2020_21.iml" />
+    </modules>
+  </component>
+</project>
