@@ -1,0 +1,7 @@
+isidora 20 z 2
+ana 21 z 3
+aleksa 20 m 1
+filip 20 m 1
+milica 21 z 7
+aki 21 m 5
+lara 17 z 4

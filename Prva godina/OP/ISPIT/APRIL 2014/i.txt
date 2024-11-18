@@ -1,0 +1,5 @@
+analogna	4	2
+analogna	-9	5
+digitalna	-10	3
+analogno-digitalna	0	-15
+digitalna	1	4

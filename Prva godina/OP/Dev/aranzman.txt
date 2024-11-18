@@ -1,0 +1,20 @@
+4
+Isi
+Kragujevac
+Kragujevac
+10
+2500
+Greba
+Grebanovic
+Beograd
+9
+1700
+Ana
+Anic
+Novi Sad
+7
+8000
+Aki
+Krivaja
+Batocina
+10000

@@ -1,0 +1,14 @@
+1 10 1 2019 Jokic
+2 10 1 2019 Jokic
+2 11 1 2019 Jokic
+1 12 1 2019 Bogdanovic
+2 12 1 2019 Bjelica
+1 11 1 2019 Bjelica
+3 10 1 2019 Bjelica
+1 12 1 2019 Bogdanovic
+1 12 1 2019 Bogdanovic
+1 12 1 2019 Bogdanovic
+3 10 1 2019 Bjelica
+3 10 1 2019 Bjelica
+3 13 1 2019 Bjelica
+1 14 1 2019 Jokic

@@ -1,0 +1,46 @@
+Marej	0
+Jokic	0
+Milsap	0
+Dzejms	0
+Harden	0
+Kari	0
+Bjelica	0
+Bogdanovic	0
+Vucevic	0
+Irving	0
+---------------------
+1 10 1 2019 Jokic
+2 10 1 2019 Jokic
+2 11 1 2019 Jokic
+1 12 1 2019 Bogdanovic
+2 12 1 2019 Bjelica
+1 11 1 2019 Bjelica
+3 10 1 2019 Bjelica
+1 12 1 2019 Bogdanovic
+1 12 1 2019 Bogdanovic
+1 12 1 2019 Bogdanovic
+3 10 1 2019 Bjelica
+3 10 1 2019 Bjelica
+3 13 1 2019 Bjelica
+1 14 1 2019 Jokic
+---------------------
+1 10 1 2019 Jokic
+2 10 1 2019 Jokic
+2 11 1 2019 Jokic
+1 12 1 2019 Bogdanovic
+2 12 1 2019 Bjelica
+1 11 1 2019 Bjelica
+3 10 1 2019 Bjelica
+3 13 1 2019 Bjelica
+1 14 1 2019 Jokic
+---------------------
+Marej	0
+Jokic	4
+Milsap	0
+Dzejms	0
+Harden	0
+Kari	0
+Bjelica	4
+Bogdanovic	1
+Vucevic	0
+Irving	0

@@ -1,0 +1,16 @@
+15
+Leka Lekic 4.5
+Ana Petrovic 1.6
+Milica Nikolic 3.8
+Petar Petrovic 1.2
+Jana Janic 4.9
+Milos Tasic 2.1
+Filip Maric 2.6
+Sanja Saric 3.5
+Milica Milic 1.1
+Milos Ilic 2.3
+Danilo Dacic 3.7
+Ilija Ilic 1.9
+Mario Tomas 3.3
+Marko Markovic 4.5
+Stefan Stevic 5.0

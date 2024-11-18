@@ -1,0 +1,42 @@
+void ucitajNiz(int a[],int n){
+	int i;
+	for(i=0;i<n;i++) scanf("%d",&a[i]);		
+}
+
+void ispisiNiz(int a[],int n){
+	int i;
+	for(i=0;i<n;i++) printf("%5d",a[i]);		
+}
+
+*****************************************************************************************************
+
+void ucitajMatricu(int a[50][50], int m, int n){
+	int i,j;
+	for(i=0;i<m;i++)
+		for(j=0;j<n;j++) scanf("%d",&a[i][j]);
+}
+
+void ispisiMatricu(int a[50][50],int m,int n){
+	int i,j;
+	for(i=0;i<m;i++){
+		for(j=0;j<n;j++) printf("%5d",a[i][j]);
+		printf("\n");
+	}
+}
+
+******************************************************************************************************
+//KVADRATNA MATRICA 
+
+void ucitajMatricu(int a[50][50], int n){
+	int i,j;
+	for(i=0;i<n;i++)
+		for(j=0;j<n;j++) scanf("%d",&a[i][j]);
+}
+
+void ispisiMatricu(int a[50][50],int n){
+	int i,j;
+	for(i=0;i<n;i++){
+		for(j=0;j<n;j++) printf("%5d",a[i][j]);
+		printf("\n");
+	}
+}
